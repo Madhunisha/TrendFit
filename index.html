@@ -1,0 +1,76 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+    <h1>You're ready to use Parse!</h1>
+
+    <p>Read the documentation and start building your JavaScript app:</p>
+
+    <ul>
+      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
+      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
+    </ul>
+
+    <div style="display:none" class="error">
+      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
+    </div>
+
+    <div style="display:none" class="success">
+      <p>We've also just created your first object using the following code:</p>
+      
+        <code>
+          var TestObject = Parse.Object.extend("TestObject");<br/>
+          var testObject = new TestObject();<br/>
+          testObject.save({foo: "bar"});
+        </code>
+    </div>
+
+
+  </div>
+
+  <script type="text/javascript">
+
+Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  
+var Trainer = Parse.Object.extend("Trainer");
+var trainerDetails = new Trainer();
+trainerDetails.set({"name":"Jacob Strauss","email":"jacobstrauss@gmail.com","address" :"1075, Ridge Avenue, Evanston","speciality": "Muscle Strengthening","priceRangeIndi": "$30", "today":[{"6:00":"0"},{"7:00":"0"},{"8:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
+});
+
+trainerDetails.save();
+
+trainerDetails.set({"name":"Jessica Smith","email":"JessicaSmith@gmail.com","address" :"1189, Sheridan Road, Evanston", "speciality": "Pilates","priceRangeIndi": "$32", "today":[{"7:00":"0"},{"8:00":"0"},{"10:00":"0"}],"tomorrow":[{"11:00":"0"},{"12:00":"0"},{"13:00":"0"}]
+});
+
+trainerDetails.save();
+
+trainerDetails.set({"name":"John Parker","email":"JohnParker@gmail.com","address" :"111, Forest Avenue, Evanston","speciality": "Muscle Strengthening","priceRangeIndi": "$40", "today":[{"11:00":"0"},{"12:00":"0"},{"13:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
+});
+trainerDetails.save();
+
+trainerDetails.set({"name":"Tim John","email":"TimJohn@gmail.com","address" :"221, Emerson Road, Evanston","speciality": "Cardio","priceRangeIndi": "$20", "today":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
+});
+
+trainerDetails.save();
+
+trainerDetails.set({"name":"Jamie Evans","email":"JamieEvans@gmail.com","address" :"1123, Maple Avenue, Springfield","speciality": "Yoga","priceRangeIndi": "$32", "today":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}],"tomorrow":[{"10:00":"0"},{"11:00":"0"},{"12:00":"0"}]
+});
+trainerDetails.save();
+
+
+
+</script>
+</body>
+
+</html>

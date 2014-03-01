@@ -1,4 +1,6 @@
 $(document).ready(function(){
+			var numOfTrainers = 0;
+			
 			$("#display-trainers").hide();
 			$("#display-def-trainers").hide();
 			$("#show-trainers-div").html(function() {
@@ -6,12 +8,14 @@ $(document).ready(function(){
 					var speciality = $("#specialitySelect").val();
 					$("#display-def-trainers").show();
 			});
-alert("test");
+
 Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  
 		
 		});
 				
 function searchTrainer() {
+		var trainerName = [];
+		var price = [];
 		$("#display-def-trainers").hide();
 		var myCity = $("#citySelect").val();
 		var mySpeciality = $("#specialitySelect").val();
@@ -23,12 +27,17 @@ function searchTrainer() {
 			query.contains("speciality", mySpeciality);
 		query.find({
 			success: function(results) {
-				alert("Successfully retrieved " + results.length + " scores.");
+				numOfTrainers = results.length;
+
 				// Do something with the returned Parse.Object values
+				var op = "";
 				for (var i = 0; i < results.length; i++) { 
 					var object = results[i];
-					alert(object.get('address') + ' - ' + object.get('name'));
-			}
+					trainerName[i] = object.get('name');
+					price[i] = object.get('priceRangeIndi');
+					op += '<span style="float:left;padding:0 30px 20px 0;"><img src="img/avator.jpg" alt="Img" height="100px" width="100px"></img><a href="http://www.google.com" target="_blank"><br> <span id = "trainerName" >' + trainerName[i] + ' </span></a> <br><span id = "price">' + price[i] +' </span></span>'		
+				}
+			$("#trainers-list").html(op);
 		},
 		error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
