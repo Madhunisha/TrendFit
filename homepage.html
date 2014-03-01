@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>TrendFit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/pygments-manni.css" />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/moment-2.4.0.js"></script>
+
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$("#display-trainers").hide();
+			$("#display-def-trainers").hide();
+			$("#show-trainers-div").html(function() {
+					$("#display-def-trainers").show();
+			});
+		});
+     </script>
+  </head>
+
+
+  <body>
+
+    <div class="container" style="height:700px;">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            
+            <h3><b>Trend Fit</b></h3>
+            
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            <img src="img/logo.png" width="60px" height="60px">  
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="col-md-7" style="float:left;">
+      <div  class="well">
+	    <div style="text-align:center;">
+        <h2>Find a trainer</h2>
+		</div>
+        <div>
+			<span style="padding-left:10%;float:left;font-weight:bold;">
+			<select id="citySelect" class="form-control">
+				<option value="" disabled selected>Select City</option>
+				<option value="Shicago">Chicago</option>
+				<option value="Evanston" selected>Evanston</option>
+				<option value="Naperville">Naperville</option>
+				<option value="Shaumburg">Shaumburg</option>
+				<option value="Springfield">Springfield</option>
+			</select>
+			</span>
+			<span style="padding-left:10%;float:left;font-weight:bold;">
+			<select id="specialitySelect" class="form-control">
+				<option value="" disabled selected>Select Speciality</option>
+				<option value="Cardio">Cardio</option>
+				<option value="Pilates">Pilates</option>
+				<option value="Strength">Strength</option>
+				<option value="Yoga">Yoga</option>
+			</select>
+			</span>
+			
+			<span style="padding-left:10%;"> <a class="btn btn-primary" href="../../components/#navbar" role="button">Search</a></span>
+		</div>
+      </div>
+    </div>
+	  <div class="col-md-5" style="float:right;">
+			<div class="well">
+			<span style="text-align:center"><h3>Why TrendFit?</h4></span>
+			<ul>
+				<li> bla bla </li>
+				<li> bla bla </li>
+				<li> bla bla </li>
+				<li> bla bla </li>
+				
+			</ul>
+		</div>
+	  </div>
+	  
+	  <div id="show-trainers-div">      
+	  </div>
+	  <div id="display-def-trainers" class="col-md-7 well" style="float:left;padding-left:5%;>
+			<span style="text-align:center"><h3>Trainers in Evanston</h4></span>
+			<span style="float:left;padding:0 30px 20px 0;"><img src="1.png" alt="Img" height="100px" width="100px"></img><br>
+			<a href="http://www.google.com" target="_blank"> Jacob Strauss </a> <br>
+			Price - $60 - $80
+			</span>
+			<span style="float:left;padding:0 30px 20px 0;"><img src="1.png" alt="Img" height="100px" width="100px"></img><br>
+			<a href="http://www.google.com" target="_blank"> Jessica Smith </a> <br>
+			Price - $60 - $100
+			</span>
+			<span style="float:left;padding:0 30px 20px 0;"><img src="1.png" alt="Img" height="100px" width="100px"></img><br>
+			<a href="http://www.google.com" target="_blank"> John Parker </a> <br>
+			Price - $80 - $100
+			</span>
+			<span style="float:left;padding:0 30px 20px 0;"><img src="1.png" alt="Img" height="100px" width="100px"></img><br>
+			<a href="http://www.google.com" target="_blank"> Tim John </a> <br>
+			Price - $50 - $70
+			</span>
+			
+		</div>
+	<div id="display-trainers" class="col-md-7 well" style="float:left;>
+			<span style="text-align:center"><h3>Trainers in Chicago</h4></span>
+			<span>test1</span>
+		</div>
+
+
+
+
+    </div> <!-- /container -->
+	<div class="panel-footer">
+		&nbsp;&nbsp;&nbsp; <a href="www.google.com">About </a>	&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; <a href="www.google.com">Contact us </a>
+		<span style="padding-left:30%"><label>&copy; 2014 TrendFit all rights reserved </label></span>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
