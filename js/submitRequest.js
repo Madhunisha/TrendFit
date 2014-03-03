@@ -12,6 +12,7 @@ var errName = '';
 	var errAddress='';
 	var errCity = '';
 	var errZip='';
+	var traineesName = '';
 
 $(document).ready(function(){
 
@@ -68,6 +69,7 @@ var gender;
 var location = $('input:radio[name=rbtnLocation]:checked').val();
 var timePicked = $('input:radio[name=Time]:checked').val();
 alert(timePicked);
+traineesName = document.getElementById('name').value;
 if(document.getElementById('M').checked){ gender = "male"; }
 else gender = "female";
 traineeDetails.set({"Name":document.getElementById('name').value,"Email":document.getElementById('email').value,"Address" :document.getElementById('address').value,"Password": document.getElementById('password').value,"Gender":gender, "City":document.getElementById('city').value,"ZipCode":document.getElementById('zip').value
@@ -79,6 +81,7 @@ traineeIdentify.set({"email":document.getElementById('email').value,"password":d
 traineeDetails.save(null, {
 	success: function(traineeDetails) {
         var traineeEmail = document.getElementById('email').value.split('@')[0];
+        var op ='';
 
 		traineeIdentify.set({"email":document.getElementById('email').value,"password":document.getElementById('password').value,"Type":"Trainee"});
 		traineeIdentify.save();
@@ -86,7 +89,9 @@ traineeDetails.save(null, {
 		request.save(null, {
 			success: function(request) {
 				alert('Your request has been submitted.');
-				window.location.href = 'signup.html';				
+				window.location.href = "homepageTrainee.html?id="+traineeEmail;	
+				$('.traineeName').html(traineesName);
+				alert(traineesName);
 			},
 			error: function(request, error) {
 				alert('Failed to submit request. Please login and submit again');
