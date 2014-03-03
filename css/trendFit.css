@@ -32,3 +32,27 @@ label.error {
 	font-size: 40px;
 
 }
+.city{
+	float: left;
+	width: 48%;
+}
+
+.zip{
+	float: right;
+	width: 48%;
+}
+.gender{
+	color: #626262;
+}
+
+#errorDiv, #errorDiv1, #errorDiv2, #errorDiv3    {
+	color:red;
+}
+#errorDiv4{
+	float: left;
+	color:red;
+}
+#errorDiv5{
+	float: right;
+	color: red;
+}

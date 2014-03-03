@@ -13,12 +13,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/trendFit.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/moment-2.4.0.js"></script>
 	 <script type="text/javascript" src="js/submitRequest.js"></script>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" >
+  Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  
+          var Trainee = Parse.Object.extend("Trainee");
+           var Request = Parse.Object.extend("Request");
+           var Users = Parse.Object.extend("Users");</script>
+ 
     
   </head>
 
@@ -68,15 +76,72 @@
 	<div id="tomorrowTimeDiv" style="padding-left:30px"> </div>
 
     <div><h3>Pick a Location: </h3></div>
-	<div id = "locationDiv" style="padding-left:30px;"> <input type="radio" id = "trainerStudio" name = "rbtnLocation" > &nbsp; Trainer's Studio </input> &nbsp;&nbsp; <input type="radio" id = "yourAddress" name = "rbtnLocation" > &nbsp; Your own Address </input> </div>
+	<div id = "locationDiv" style="padding-left:30px;"> <input type="radio" id = "rbtnLocation" name = "rbtnLocation" value="TrainerStudio"> &nbsp; Trainer's Studio </input> &nbsp;&nbsp; <input type="radio" id = "rbtnLocation" name = "rbtnLocation" value="TraineeAddress" > &nbsp; Your own Address </input> </div>
 	
     <br>
     <br>
-        <button class="btn  btn-primary" type="submit" onclick="form_validation()">Submit Request</button>
+    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg footerSubmit">Submit Request </a>
       </form>
     </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Sign up</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form novalidate="novalidate" action="" class="form-group" id="signU" role="form">
+                        <fieldset>
+                          <div id="errorDiv"></div>
+                        <div class="form-group">
+                            <input type="poster" class="form-control" id="name" name="name" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                          <label class ="gender">Gender:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="M" name="gender" class =  "gender">&nbsp;Male</input>&nbsp;&nbsp;&nbsp;
+                            <input type="radio"  id="F" name = "gender" class= "gender">&nbsp;Female</input>
+                        </div>
+                        <div id="errorDiv1"></div>
+                        <div class="form-group" >
+                            <input type="poster" class="form-control " id="email" placeholder="Email Address">
+                        </div>
+                        <div id="errorDiv2"></div>
+                        <div class="form-group">
+                            <input type="poster" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div id="errorDiv3"></div>
+                        <div class="form-group">
+                            <input type="poster" class="form-control" id="address" placeholder="Address">
+                        </div>
+                        <div id="errorDiv4"></div>&nbsp;<div id="errorDiv5"></div>
+                        <div class="form-group">
+                            
+                            <input type="poster" class="form-control city" id="city"  placeholder="City">
+                            
+                            <input type="poster" class="form-control zip" id="zip" placeholder="Zip Code">
+                        </div>
+                        
+                        
+
+                        </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="signUp" type="button" class="btn btn-primary signUp" onclick = " signUp(); formValidation()">Sign-Up</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+
+
+
+
 
 
     </div> <!-- /container -->
