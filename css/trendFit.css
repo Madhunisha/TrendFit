@@ -1,0 +1,34 @@
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(assets/img/valid.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.timeVal {
+	height: 20px;
+	position: relative;
+	border: 2px solid #000000;
+	font-size: 16px;
+	margin-top: 20px;
+	margin-left: 10px;
+	padding: 10px;
+	overflow:hidden;
+}
+@font-face{
+	font-family: 'Jobberno';
+	src: url('Vulgar Display Regular.ttf');
+
+}
+
+.title{
+	font-family: Jobberno;
+	font-size: 40px;
+
+}
