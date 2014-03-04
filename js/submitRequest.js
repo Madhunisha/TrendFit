@@ -16,11 +16,11 @@ var errName = '';
 
 $(document).ready(function(){
 
-
+            
 			
 			 emailParam = window.location.search.substring(1).split('=')[1];
 			 
-			 
+			 trainerLoad(emailParam);
 			 var query = new Parse.Query("Trainer");
 			 query.contains("email", emailParam);
 		
@@ -68,7 +68,6 @@ var request = new Request();
 var gender;
 var location = $('input:radio[name=rbtnLocation]:checked').val();
 var timePicked = $('input:radio[name=Time]:checked').val();
-alert(timePicked);
 traineesName = document.getElementById('name').value;
 if(document.getElementById('M').checked){ gender = "male"; }
 else gender = "female";
@@ -90,8 +89,8 @@ traineeDetails.save(null, {
 			success: function(request) {
 				alert('Your request has been submitted.');
 				window.location.href = "homepageTrainee.html?id="+traineeEmail;	
-				$('.traineeName').html(traineesName);
-				alert(traineesName);
+				
+			
 			},
 			error: function(request, error) {
 				alert('Failed to submit request. Please login and submit again');
@@ -184,4 +183,46 @@ function formValidation(){
   }
  }); */
 }
+
+function trainerLoad(emailParam)
+		{
+			    var myParam = emailParam;
+			    //var param= "XlIayM9M2Z";
+			    var query= new Parse.Query("Trainer");
+			   
+			    query.contains("email",myParam);
+			   			    query.find({
+  				success: function(object) {
+  				
+
+        var content='<div >';
+         content+='<div style="float:left; padding-right:10px">';
+
+         content+='<img src="img/avator.jpg" alt="Img" height="200px" class="img-thumbnail" width="200px"></img></div>';
+        content+='<div style="float:center">';
+        content += '<h2>' + object[0].get("name") + '</h2>';
+
+        content+= '<p><b>Gender:</b> ' + object[0].get("Gender") + '</p>';
+        content += '<p><b>Speciality:</b> ' + object[0].get("speciality") + '</p>';
+
+        content+= '<p><b>Rating:</b> ' + object[0].get("Rating") + '</p>';
+        content += '<p><b>Address:</b> ' + object[0].get("address") + '</p>';
+        content += '<p><b>Email:</b> ' + object[0].get("email") + '</p>';
+        content += '<p><b>Rate per Hour:</b> ' + object[0].get("priceRangeIndi") + '</p>';
+        content+='<div  style="float:left;padding-top:10px;text-align:justify;">';
+		content+= '<p> ' + object[0].get("Brief_Description") + '</p></div>';
+
+
+       
+        content +='</div> </div>';
+        $(content).appendTo("#trainer-info");
+        
+
+  				},
+  				error: function(object, error) {
+    				alert("error");
+    			}
+
+		});
+	}
 		

@@ -19,21 +19,24 @@
     <script type="text/javascript" src="js/moment-2.4.0.js"></script>
 	 <script type="text/javascript" src="js/trendFit.js"></script>
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
-		<script type="text/javascript" src="js/submitRequest.js"></script>
+		<script type="text/javascript" src="js/homePageTrainee.js"></script>
+		<script type="text/javascript" >
+  Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  </script>
  
   </head>
 
 
-  <body>
+  <body style="background-color:#778898">
 
-    <div class="container" style="height:700px;">
+   <!-- <div class="container" style="height:700px;"> -->
 
       <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
+      <div class="navbar-wrapper" style="background-color:#5cb85c" role="navigation">
+        <div class="container ">
+
+          <div class="navbar-header" >
             
-            <h3><b>Trend Fit</b></h3>
+            <h1 style="color:white"> <b>Trend Fit</b></h1>
             
           </div>
           <div class="navbar-collapse collapse">
@@ -44,7 +47,7 @@
             <ul class="nav navbar-nav navbar-right">
               <form class="navbar-form navbar-right" role="form">
             
-            <div> Welcome,<span class ="traineeName" > name</span> </div>
+            <div> Welcome,<span id ="traineeName" ></span> </div>
           </form>
             </ul>
           </div><!--/.nav-collapse -->
