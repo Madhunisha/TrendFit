@@ -209,7 +209,7 @@ function trainerLoad(emailParam)
         content += '<p><b>Address:</b> ' + object[0].get("address") + '</p>';
         content += '<p><b>Email:</b> ' + object[0].get("email") + '</p>';
         content += '<p><b>Rate per Hour:</b> ' + object[0].get("priceRangeIndi") + '</p>';
-        content+='<div  style="float:left;padding-top:10px;text-align:justify;">';
+        content+='<div  style="float:left;padding-top:10px;padding-right:20px;text-align:justify;">';
 		content+= '<p> ' + object[0].get("Brief_Description") + '</p></div>';
 
 
