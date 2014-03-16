@@ -39,18 +39,17 @@ $(document).ready(function(){
 					tomorrowFlag[i] = tomorrowTimeArr[i].flag; 
 				}
 				
-				var todayOp = "";
+				/*var todayOp = "";
 				todayOp += "<h4>"+ day[currDate.getDay()]+",&nbsp;"+ month[currDate.getMonth()]+"&nbsp;"+ currDate.getDate() +"</h4>";
 				for (var i = 0; i < todayTimeArr.length; i++) { 
 					todayOp += '<input type ="radio" id="rbtnmyaddress" name="Time" value = "' + todayTime[i] + '">&nbsp;'+ todayTime[i] + '</input> &nbsp;&nbsp;';					
-				}
+				}*/
 				var tomorrowOp = "";
 				var tomorrowDate = currDate.getDate() + 1;
-				tomorrowOp += "</br><h4>"+ day[(currDate.getDay()+1)%7]+",&nbsp;"+ month[currDate.getMonth()]+"&nbsp;"+ tomorrowDate +"</h4>";
+				tomorrowOp += "<h4>"+ day[(currDate.getDay()+1)%7]+",&nbsp;"+ month[currDate.getMonth()]+"&nbsp;"+ tomorrowDate +"</h4>";
 				for (var i = 0; i < tomorrowTime.length; i++) { 
-					tomorrowOp += '<input type ="radio" id="rbtnmyaddress" name="Time" value = "' + tomorrowTime[i] + '">&nbsp;'+ tomorrowTime[i] + '</input> &nbsp;&nbsp;';					
+					tomorrowOp += '<input type ="radio" id="rbtnmyaddress" name="Time" checked=checked value = "' + tomorrowTime[i] + ' ">&nbsp;'+ tomorrowTime[i] + '</input> &nbsp;&nbsp;';					
 				}
-			$("#todayTimeDiv").html(todayOp);
 			$("#tomorrowTimeDiv").html(tomorrowOp);
 		},
 		error: function(error) {
@@ -124,64 +123,58 @@ function formValidation(){
 	
 	var emailChk = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 	var ZipCheck = /^[0-9]+$/;
+	var flag = 0;
 
     if(document.getElementById('name').value=='')
     {
     	errName= "Name is required";
+		flag = 1;
     }
     $("#errorDiv").html(errName);
     if(document.getElementById('email').value=='')
     {
     	errEmail= "Email is required";
+		flag = 1;
     }
     else if( !emailChk.test( document.getElementById('email').value ) ) {
     	errEmail= "Not a valid email format";
+		flag = 1;
 
     }
     $("#errorDiv1").html(errEmail);
     if(document.getElementById('password').value=='')
     {
     	errPassword= "Password is required";
+		flag = 1;
     }
     $("#errorDiv2").html(errPassword);
     if(document.getElementById('address').value=='')
     {
     	errAddress= "Address is required";
+		flag = 1;
     }
     $("#errorDiv3").html(errAddress);
     if(document.getElementById('city').value=='')
     {
     	errCity= "City is required";
+		flag = 1;
     }
     $("#errorDiv4").html(errCity);
     if(document.getElementById('zip').value=='')
     {
     	errZip= "Zip Code is required";
+		flag = 1;
     }
     else if ( !ZipCheck.test(document.getElementById('zip').value)){
         errZip= "Zip Code should be numbers only";
+		flag = 1;
     }
     $("#errorDiv5").html(errZip);
-//$('#signU').validate_popover({onsubmit: false, popoverPosition: 'top'});
-
- /*$('#signU').validate(
- {
-
-  rules: {
-    name: {
-      required: true,
-      minlength: 2
-    }
-  },
-  highlight: function(element) {
-    $(element).closest('.control-group').removeClass('success').addClass('error');
-  },
-  success: function(element) {
-    element
-    .text('OK!').addClass('valid')
-    .closest('.control-group').removeClass('error').addClass('success');
-  }
- }); */
+	
+	if(flag == 0){
+		signUp();
+	}
+	
 }
 
 function trainerLoad(emailParam)
@@ -226,3 +219,26 @@ function trainerLoad(emailParam)
 		});
 	}
 		
+function checkUser() {
+var emailId = document.getElementById('txtEmail').value;
+var pass = document.getElementById('txtPassword').value;
+
+var query = new Parse.Query("Users");
+query.equalTo("email", emailId);
+query.equalTo("password", pass);
+query.find({
+		success: function(result) {				
+				var userType = result[0].get('Type');
+				if(userType == 'Trainer')
+				{
+					window.location.href = "trainerDashboard.html?id=" + emailId.split('@')[0] + " ";
+				}
+				else {
+					window.location.href = "homepageTrainee.html?id="+ emailId.split('@')[0] +" ";
+				}
+		},
+		error: function(error) {	
+			alert("Invalid username or password");
+		}
+		});
+}

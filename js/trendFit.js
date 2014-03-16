@@ -8,9 +8,6 @@ $(document).ready(function(){
 					var speciality = $("#specialitySelect").val();
 					$("#display-def-trainers").show();
 			});
-
-Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  
-		
 		});
 				
 function searchTrainer() {
@@ -37,7 +34,7 @@ function searchTrainer() {
 					trainerName[i] = object.get('name');
 					email[i] = object.get('email');
 					price[i] = object.get('priceRangeIndi');
-					op += '<span style="float:left;padding:0 30px 20px 0;"><img src="img/avator.jpg" alt="Img" height="100px" width="100px"></img><a href="signup.html?id='+email[i].split("@")[0]+'" target="_blank" id="'+ email[i] +'" ><br> <span id = "trainerName" >' + trainerName[i] + ' </span></a> <br><span id = "price">' + price[i] +' </span></span>'		
+					op += '<span style="float:left;padding:0 30px 20px 0;"><img src="img/avator.jpg" alt="Img" height="100px" width="100px"></img><a style="color:white;text-decoration:underline;font-weight:bold;" href="signup.html?id='+email[i].split("@")[0]+'" target="_blank" id="'+ email[i] +'" ><br> <span id = "trainerName" >' + trainerName[i] + ' </span></a> <br><span id = "price" style="color:white">Price: ' + price[i] +' </span></span>'		
 				}
 			$("#trainers-list").html(op);
 		},
@@ -52,6 +49,30 @@ function searchTrainer() {
 					var speciality = $("#specialitySelect").val();
 					$("#display-trainers").show();
 			});
-
+		//window.location.href="homepage.html#display-trainers";
+		$('html, body').animate({scrollTop:700}, 'slow');
 }
 
+function checkUser() {
+var emailId = document.getElementById('txtEmail').value;
+var pass = document.getElementById('txtPassword').value;
+
+var query = new Parse.Query("Users");
+query.equalTo("email", emailId);
+query.equalTo("password", pass);
+query.find({
+		success: function(result) {				
+				var userType = result[0].get('Type');
+				if(userType == 'Trainer')
+				{
+					window.location = "trainerDashboard.html?id=" + emailId.split('@')[0] + " ";
+				}
+				else {
+					window.location.href = "homepageTrainee.html?id="+ emailId.split('@')[0] +" ";
+				}
+		},
+		error: function(error) {	
+			alert("Invalid username or password");
+		}
+		});
+}

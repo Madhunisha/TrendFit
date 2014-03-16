@@ -40,7 +40,6 @@ query.find({
 				if (location == "TrainerStudio"){
 					location = results[0].get('address');
 				}
-				alert("id:"+trainerId+ "time:"+time +"location:"+location+"trainerName:"+trainerName);
 			},
 		error: function(error) {
 			alert("Error: " + error.code + " " + error.message);
@@ -55,4 +54,8 @@ query.find({
 		});	
 
 
+}
+
+function logout(){
+	window.location.href = "index.html";
 }

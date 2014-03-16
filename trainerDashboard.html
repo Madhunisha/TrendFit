@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>TrendFit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	 <script type="text/javascript" src="js/trainerDashboard.js"></script>
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
+    <script type="text/javascript"> Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");   </script>
+  </head>
+
+
+  <body style="background-color:#A4A6A7">
+
+
+      <!-- Static navbar -->
+      <div class="navbar-wrapper" style="background-color:#5cb85c" role="navigation">
+        <div class="container">
+
+          <div class="navbar-header" >
+            
+            <a href="index.html" style="text-decoration:none;"><h3 style="color:white"> <b>TrendFit</b></h3></a>
+            
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            <a href="index.html"><img src="img/logo.png" width="60px" height="60px"></a>  
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-right" role="form">
+            
+            <div style="color:white"> Welcome &nbsp;&nbsp;<span id ="trainerName" ></span>&nbsp;&nbsp;&nbsp;<a class="btn btn-primary" onclick="logout();" role="button">Logout</a> </div>
+          </form>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+
+<div class="container">	  
+	 <div class="row">
+      
+  <div class="col-md-6">
+        <div class="well">
+        <form class="form-group" id="signup" role="form">
+        <h2 class="form-signin-heading">Your Schedule for today</h2><br>
+		<div>
+			<label>Trainee: Sandy </label></br>
+			<label>Time: 7:00 AM - 8:00 AM </label> </br>
+			<label>Location: Your Studio </label> </br></br>
+			<label>Trainee: Cathy </label></br>
+			<label>Time: 9:00 AM - 10:00 AM </label> </br>
+			<label>Location: Your Studio </label> </br></br>
+			<label>Trainee: Alex </label></br>
+			<label>Time: 11:00 AM - 12:00 PM </label> </br>
+			<label>Location: Your Studio </label> </br></br>
+		</div>
+      </form>
+    </div>
+    </div>
+	
+	 <div class="col-md-6">
+        <div class="well">
+        <form class="form-group" id="signup" role="form">
+        <h2 class="form-signin-heading">Requests for tomorrow</h2><br>
+		<div id="requestsDiv">
+		
+		</div>
+
+      </form>
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -21,10 +21,10 @@ label.error {
 	padding: 10px;
 	overflow:hidden;
 }
+
 @font-face{
 	font-family: 'Jobberno';
 	src: url('Vulgar Display Regular.ttf');
-
 }
 
 .title{

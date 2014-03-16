@@ -17,7 +17,6 @@
 
     <!-- Custom styles for this template -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/moment-2.4.0.js"></script>
 	 <script type="text/javascript" src="js/submitRequest.js"></script>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
   <script src="js/jquery.validate.min.js"></script>
@@ -31,7 +30,7 @@
   </head>
 
 
-  <body style="background-color:#778898">
+  <body style="background-color:#A4A6A7">
 
 
       <!-- Static navbar -->
@@ -40,23 +39,23 @@
 
           <div class="navbar-header" >
             
-            <h3 style="color:white"> <b>TrendFit</b></h3>
+            <a href="index.html" style="text-decoration:none;"><h3 style="color:white";> <b>TrendFit</b></h3></a>
             
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-            <img src="img/logo.png" width="60px" height="60px">  
+            <a href="index.html"><img src="img/logo.png" width="60px" height="60px"></a> 
             </ul>
             
             <ul class="nav navbar-nav navbar-right">
               <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Email" class="form-control" id="txtEmail">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control" id="txtPassword">
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <a class="btn btn-primary" onclick="checkUser();" role="button">Sign in</a>
           </form>
             </ul>
           </div><!--/.nav-collapse -->
@@ -69,21 +68,20 @@
       <div class="row">
       
   <div class="col-md-12">
-        <div class="well">
+        <div class="well" style="overflow:hidden;">
         <form class="form-group" id="signup" role="form">
         <h2 class="form-signin-heading">Submit your workout request</h2><br>
-        <div id="trainer-info"  class="col-md-8" style="float:left;">
+        <div id="trainer-info"  class="col-md-7" style="float:left;">
       
     </div>
     <br>
     <br>
  
 	<div><h3>Pick a Time:</h3></div>
-	<div id="todayTimeDiv" style="padding-left:30px;"> </div>
 	<div id="tomorrowTimeDiv" style="padding-left:30px"> </div>
 
     <div><h3>Pick a Location: </h3></div>
-	<div id = "locationDiv" style="padding-left:30px;"> <input type="radio" id = "rbtnLocation" name = "rbtnLocation" value="TrainerStudio"> &nbsp; Trainer's Studio </input> &nbsp;&nbsp; <input type="radio" id = "rbtnLocation" name = "rbtnLocation" value="TraineeAddress" > &nbsp; Your own Address </input> </div>
+	<div id = "locationDiv" style="padding-left:30px;"> <input type="radio" id = "rbtnLocation" name = "rbtnLocation" checked=checked value="TrainerStudio"> &nbsp; Trainer's Studio </input> &nbsp;&nbsp; <input type="radio" id = "rbtnLocation" name = "rbtnLocation" value="TraineeAddress" > &nbsp; Your own Address </input> </div>
 	
     <br>
     <br>
@@ -119,7 +117,7 @@
                         </div>
                         <div id="errorDiv2"></div>
                         <div class="form-group">
-                            <input type="poster" class="form-control" id="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
                         </div>
                         <div id="errorDiv3"></div>
                         <div class="form-group">
@@ -139,7 +137,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button id="signUp" type="button" class="btn btn-primary signUp" onclick = " signUp(); formValidation()">Sign-Up</button>
+                        <button id="signUp" type="button" class="btn btn-primary signUp" onclick = "formValidation();">Sign-Up</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

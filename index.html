@@ -1,76 +1,163 @@
-<!doctype html>
-<head>
-  <meta charset="utf-8">
 
-  <title>My Parse App</title>
-  <meta name="description" content="My Parse App">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
-</head>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-<body>
-  
-  <div id="main">
-    <h1>You're ready to use Parse!</h1>
+    <title>TrendFit</title>
 
-    <p>Read the documentation and start building your JavaScript app:</p>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <ul>
-      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
-      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
-    </ul>
-
-    <div style="display:none" class="error">
-      Looks like there was a problem saving the test object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
-    </div>
-
-    <div style="display:none" class="success">
-      <p>We've also just created your first object using the following code:</p>
-      
-        <code>
-          var TestObject = Parse.Object.extend("TestObject");<br/>
-          var testObject = new TestObject();<br/>
-          testObject.save({foo: "bar"});
-        </code>
-    </div>
+    <!-- Custom styles for this template -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	 <script type="text/javascript" src="js/trendFit.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.17.min.js"></script>
+	<script type="text/javascript"> Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");   </script>
+  </head>
 
 
+  <body style="background-color:#A4A6A7">
+
+
+      <!-- Static navbar -->	
+      <div class="navbar-wrapper" style="background-color:#5cb85c" role="navigation">
+        <div class="container ">
+
+          <div class="navbar-header" >
+            
+            <a href="index.html" style="text-decoration:none;"><h3 style="color:white"> <b>TrendFit</b></h3></a>
+            
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            <a href="index.html"><img src="img/logo.png" width="60px" height="60px"></a>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control" id="txtEmail">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" id="txtPassword">
+            </div>
+			<a class="btn btn-primary" onclick="checkUser();" role="button">Sign In</a>
+          </form>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>	
+      	<br>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div style="height:420px;width:1170px;margin: 0 auto;">
+      <div id="carousel-example-generic" class="carousel slide"  data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="img/fimg1.JPG" style="opacity:0.7">
+            <div class="carousel-caption" >
+              <h2 style="font-size:40px;"><b>Creating a new trend of fitness</b></h2>
+              <h2 style="font-size:40px;"><b>Connecting Professional trainers and trainees</b></h2>
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/fimg2.JPG" style="opacity:0.7">
+            <div class="carousel-caption">
+                <h2 style="font-size:40px;"><b>Connect with the best fitness Professionals</b></h2>
+              <h2 style="font-size:40px;"><b>Schedule your workout whenever and wherever</b></h2>
+
+            </div>
+          </div>
+          <div class="item" style="height:420px;width:1170px;margin: 0 auto;">
+            <img src="img/fimg3.JPG" style="opacity:0.7">
+            <div class="carousel-caption">
+                <h2 style="font-size:40px;"><b>Connect with Trainees</b></h2>
+              <h2 style="font-size:40px;"><b>Manage your schedule efficiently</b></h2>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+      <a href="http://www.localfitness.com.au" target="_blank" style="color:white;font-size:x-small">&copy; Image</a>
   </div>
+  <br>
+  <div class="container" >
+    
 
-  <script type="text/javascript">
+      <div  class="well" style="background-color:#5cb85c">
+      <div style="text-align:center;">
+        <h1 align="center" style="color:white;">Find a trainer</h1><br> 
+    </div>
+        <div>
+      <span style="padding-left:20%;float:left;font-weight:bold;">
+      <select id="citySelect" class="form-control input-lg">
+        <option value="" disabled selected>Select City</option>
+        <option value="Chicago">Chicago</option>
+        <option value="Evanston" selected>Evanston</option>
+        <option value="Naperville">Naperville</option>
+        <option value="Shaumburg">Shaumburg</option>
+        <option value="Springfield">Springfield</option>
+      </select>
+      </span>
+      <span style="padding-left:5%;padding-right:5%;float:left;font-weight:bold;">
+      <select id="specialitySelect" class="form-control input-lg">
+        <option value=""  selected>Select Speciality</option>
+        <option value="Cardio">Cardio</option>
+        <option value="Pilates">Pilates</option>
+        <option value="Strength">Strength</option>
+        <option value="Yoga">Yoga</option>
+      </select>
+      </span>
+      
+      <span > <a class="btn btn-primary btn-lg" onclick="searchTrainer();" role="button">Search</a></span>
+    </div>
+      </div>
+    
 
-Parse.initialize("MrTfNhgWN17jnkopOJ7TWJYmxy8juC7FtvegRGaz", "jWjKNBuaEEBaLYVcFBWNqAqJ1hq74vDlGwNdipPC");  
-var Trainer = Parse.Object.extend("Trainer");
-var trainerDetails = new Trainer();
-trainerDetails.set({"name":"Jacob Strauss","email":"jacobstrauss@gmail.com","address" :"1075, Ridge Avenue, Evanston","speciality": "Muscle Strengthening","priceRangeIndi": "$30", "today":[{"6:00":"0"},{"7:00":"0"},{"8:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
-});
 
-trainerDetails.save();
-
-trainerDetails.set({"name":"Jessica Smith","email":"JessicaSmith@gmail.com","address" :"1189, Sheridan Road, Evanston", "speciality": "Pilates","priceRangeIndi": "$32", "today":[{"7:00":"0"},{"8:00":"0"},{"10:00":"0"}],"tomorrow":[{"11:00":"0"},{"12:00":"0"},{"13:00":"0"}]
-});
-
-trainerDetails.save();
-
-trainerDetails.set({"name":"John Parker","email":"JohnParker@gmail.com","address" :"111, Forest Avenue, Evanston","speciality": "Muscle Strengthening","priceRangeIndi": "$40", "today":[{"11:00":"0"},{"12:00":"0"},{"13:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
-});
-trainerDetails.save();
-
-trainerDetails.set({"name":"Tim John","email":"TimJohn@gmail.com","address" :"221, Emerson Road, Evanston","speciality": "Cardio","priceRangeIndi": "$20", "today":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}],"tomorrow":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}]
-});
-
-trainerDetails.save();
-
-trainerDetails.set({"name":"Jamie Evans","email":"JamieEvans@gmail.com","address" :"1123, Maple Avenue, Springfield","speciality": "Yoga","priceRangeIndi": "$32", "today":[{"7:00":"0"},{"8:00":"0"},{"9:00":"0"}],"tomorrow":[{"10:00":"0"},{"11:00":"0"},{"12:00":"0"}]
-});
-trainerDetails.save();
+    <br>
+<div id="show-trainers-div" style="background-color:#5cb85c;">      
+    </div>
+  <div id="display-trainers" class="col-md-12 well"  style="float:left;background-color:#5cb85c;" width="">
+      <span style="text-align:center;color:white;"><h1>Trainers in <span id="cityName"></span></h1></span>     
+      <span id="trainers-list"> </span>
+    
+    </div>  
+ 
+		<br>
 
 
 
-</script>
-</body>
+ </div>
 
+
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
 </html>
